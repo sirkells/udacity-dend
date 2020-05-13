@@ -1,0 +1,224 @@
+{
+    "tables": [
+
+        {
+            "table": "passenger",
+            "type": "Dimension Table"
+            "description": "Table contains information for each passenger from the US I94 immigration dataset ",
+            "columns": 
+                    [
+                        {
+                          "column_name": "passenger_id",
+                          "description": "US I94 immigration dataset (admnum) admission number for each passsenger on entry."
+                        },
+
+                        {
+                          "column_name": "flight_no",
+                          "description": "US I94 immigration dataset (fltno) Flight number of Airline used to arrive in U.S.."
+                        },
+
+                        {
+                          "column_name": "airline",
+                          "description": "US I94 immigration dataset (airline) two letter code for each Airline used to arrive in U.S."
+                        },
+
+                        {
+                          "column_name": "airport",
+                          "description": "US I94 immigration dataset (i94port) 3 letter code for each airport"
+                        },
+
+                        {
+                          "column_name": "time_of_arrival",
+                          "description": "US I94 immigration dataset (arrdate) Time of arrival in the USA.."
+                        },
+
+                        {
+                          "column_name": "gender",
+                          "description": "US I94 immigration dataset (gender) Non-immigrant sex."
+                        },
+
+                        { 
+                          "column_name": "purpose_of_travel",
+                          "description": "US I94 immigration dataset (I94visa) Visa codes collapsed into three categories: 1 = Business, 2 = Pleasure, 3 = Student"
+                        },
+
+                        {
+                          "column_name": "age",
+                          "description": "US I94 immigration dataset (I94bir) Age of Passenger in Years "
+                        }
+                    ]
+
+        },
+
+        {
+            "table": "country",
+            "type": "Dimension Table"
+            "description": "Table contains information about each country and created from the US I94 immigration dataset ",
+            "columns": 
+                    [
+                        {
+                          "column_name": "country_id",
+                          "description": "US I94 immigration dataset (I94cit) country code"
+                        },
+
+                        {
+                          "column_name": "country_name",
+                          "description": "US I94 immigration dataset (I94cit) country names."
+                        },
+
+                        {
+                          "column_name": "alpha_2",
+                          "description": "ISO-3166 Country and Dependent Territories dataset (alpha_2) two letter code for each country"
+                        },
+
+                        {
+                          "column_name": "alpha_3",
+                          "description": "ISO-3166 Country and Dependent Territories dataset (alpha_2) three letter code for each country"
+                        },
+
+                        {
+                          "column_name": "official_name",
+                          "description": "ISO-3166 Country and Dependent Territories dataset (official name) Full Official names for each country"
+                        },
+
+                        {
+                          "column_name": "region",
+                          "description": "ISO-3166 Country and Dependent Territories dataset (region) region each country belongs"
+                        }
+                    ]
+        },
+
+
+        {
+            "table": "airport",
+            "type": "Dimension Table"
+            "description": "Table contains information about each airport. This was created from the US I94 immigration dataset ",
+            "columns": 
+                    [
+                        {
+                          "column_name": "airport_id",
+                          "description": "US I94 immigration dataset (I94port) 3 letter codes rep each airport"
+                        },
+
+                        {
+                          "column_name": "airport_name",
+                          "description": "US I94 immigration dataset names of airport"
+                        },
+
+                        {
+                          "column_name": "airport_region",
+                          "description": "US I94 immigration dataset two letter code for each airport"
+                        }
+                    ]
+        },
+
+            {
+                "table": "time",
+                "type": "Dimension Table"
+                "description": "Table contains information about the arrival times. This was created from the US I94 immigration dataset ",
+                "columns": 
+                        [
+                            {
+                              "column_name": "time_id",
+                              "description": "US I94 immigration dataset (arrdate) complete arrival timestamp (2016-04-03 00:00:00)"
+                            },
+
+                            {
+                              "column_name": "hour",
+                              "description": "Hour of arrival extrcted from time_id"
+                            },
+
+                            {
+                              "column_name": "day",
+                              "description": "Day of arrival extrcted from time_id"
+                            },
+
+                            {
+                              "column_name": "week",
+                              "description": "Week of arrival extrcted from time_id"
+                            },
+
+                            {
+                              "column_name": "month",
+                              "description": "Month of arrival extrcted from time_id"
+                            },
+
+                            {
+                              "column_name": "year",
+                              "description": "Year of arrival extrcted from time_id"
+                            },
+
+                            {
+                              "column_name": "weekday",
+                              "description": "Day of the week of arrival extrcted from time_id"
+                            }
+                         ]
+        },
+
+        {
+            "table": "entry",
+            "type": "Facts Table"
+            "description": "Table contains information about each entry event gotten from the US I94 immigration dataset ",
+            "columns": 
+                    [
+                        {
+                          "column_name": "entry_id",
+                          "description": "US I94 immigration dataset (cicid) Entry number for each event."
+                        },
+
+                        {
+                          "column_name": "airline_id",
+                          "description": "US I94 immigration dataset (airline) two letter code for each Airline used to arrive in U.S."
+                        },
+
+                        {
+                          "column_name": "passenger_id",
+                          "description": "Secondary key for passenger table (dimension table)"
+                        },
+
+                        {
+                          "column_name": "country_id",
+                          "description": "Secondary key for country table (dimension table)"
+                        },
+
+                        {
+                          "column_name": "time_id",
+                          "description": "Secondary key for time table (dimension table)"
+                        },
+
+                        {
+                          "column_name": "hour",
+                          "description": "Hour of arrival extrcted "
+                        },
+
+                        {
+                          "column_name": "day",
+                          "description": "Day of arrival extrcted "
+                        },
+
+                        {
+                          "column_name": "week",
+                          "description": "Week of arrival extrcted "
+                        },
+
+                        {
+                          "column_name": "month",
+                          "description": "Month of arrival extrcted "
+                        },
+
+                        {
+                          "column_name": "year",
+                          "description": "Year of arrival extrcted "
+                        },
+
+                        {
+                          "column_name": "weekday",
+                          "description": "Day of the week of arrival"
+                        }
+                     ]
+
+        }
+
+
+    ]
+}
